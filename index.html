@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 7 | Konservasi Keanekaragaman Hayati: In-situ dan Ex-situ</title>
+<style>
+:root {
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --ink:#172536;
+  --muted:#637486;
+  --primary:#2f7a4f;
+  --primary-dark:#17492e;
+  --soft:#e4f3e8;
+  --soft-2:#f3faf5;
+  --accent:#d9a441;
+  --accent-soft:#fff3d7;
+  --green:#2f8f83;
+  --red:#c84a4a;
+  --line:#dce8df;
+  --shadow:0 22px 58px rgba(23,73,46,.14);
+  --shadow-soft:0 12px 34px rgba(23,73,46,.10);
+  --radius:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  line-height:1.68;
+  background:
+    radial-gradient(circle at 3% 0%,rgba(217,164,65,.16),transparent 35%),
+    radial-gradient(circle at 96% 5%,rgba(47,122,79,.16),transparent 32%),
+    linear-gradient(180deg,#fbfdfb,var(--bg));
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.progress{position:fixed;top:0;left:0;width:0;height:5px;z-index:999;background:linear-gradient(90deg,var(--primary),var(--accent));transition:.12s}
+header{position:sticky;top:0;z-index:80;background:rgba(246,248,251,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(23,73,46,.10)}
+nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--primary-dark);white-space:nowrap;letter-spacing:-.02em}
+.brand-mark{width:40px;height:40px;border-radius:16px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:grid;place-items:center;font-weight:950;box-shadow:var(--shadow-soft)}
+.nav-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.nav-links a,.btn{
+  border:0;border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.86);
+  color:var(--primary-dark);font-weight:850;box-shadow:inset 0 0 0 1px rgba(23,73,46,.12);
+  cursor:pointer;transition:.2s
+}
+.nav-links a:hover,.btn:hover{transform:translateY(-2px);background:var(--soft)}
+.btn.primary{background:var(--primary);color:#fff;box-shadow:0 16px 32px rgba(47,122,79,.22)}
+.btn.accent{background:var(--accent-soft);color:#6f4d0e}
+.container{max-width:1180px;margin:auto;padding:30px 22px 80px}
+section{margin-top:50px;scroll-margin-top:92px}
+.hero{min-height:82vh;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:30px;padding:36px 0 30px}
+.eyebrow{display:inline-flex;padding:8px 14px;margin-bottom:18px;border-radius:999px;background:var(--soft);color:var(--primary-dark);font-size:.92rem;font-weight:900}
+h1{font-size:clamp(2.58rem,5.8vw,5.55rem);line-height:.95;letter-spacing:-.075em;margin-bottom:22px;color:#102334}
+h2{font-size:clamp(1.85rem,3.4vw,3.15rem);line-height:1;letter-spacing:-.055em;color:#102334}
+h3{line-height:1.22;color:#102334}
+.lead{max-width:760px;color:var(--muted);font-size:clamp(1.06rem,1.85vw,1.24rem)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-panel{min-height:520px;padding:18px;border-radius:38px;background:radial-gradient(circle at 86% 8%,rgba(217,164,65,.22),transparent 32%),linear-gradient(145deg,#fff,var(--soft));box-shadow:var(--shadow);border:1px solid rgba(23,73,46,.10);display:grid;gap:16px;overflow:hidden}
+.hero-photo{position:relative;min-height:350px;border-radius:30px;overflow:hidden;background:#dceee3}
+.hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,35,52,.02),rgba(16,35,52,.68))}
+.hero-photo-label{position:absolute;left:18px;right:18px;bottom:18px;color:#fff;z-index:2;font-size:clamp(1.35rem,2vw,2rem);font-weight:950;line-height:1.05;letter-spacing:-.04em}
+.question-box{border-radius:24px;background:rgba(255,255,255,.80);border:1px solid rgba(23,73,46,.12);padding:18px;color:var(--primary-dark)}
+.question-box strong{display:block;margin-bottom:6px;font-size:1.05rem}
+.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:20px}
+.section-title p{max-width:680px;color:var(--muted)}
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid rgba(23,73,46,.09);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.card-pad{padding:22px}
+.card p,.card li{color:var(--muted)}
+.visual-card figure{height:235px;background:#dceee3;overflow:hidden}
+.visual-card figure img{width:100%;height:100%;object-fit:cover}
+.visual-card .body{padding:20px 22px 22px}
+.tag{display:inline-flex;margin-bottom:10px;border-radius:999px;background:var(--soft);color:var(--primary-dark);font-weight:850;font-size:.88rem;padding:6px 10px}
+.term-card{padding:22px;background:#fff;border-radius:24px;box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.09)}
+.term-card h3{margin-bottom:8px;font-size:1.14rem}
+.term-card p{color:var(--muted)}
+.story-panel{border-radius:34px;padding:28px;background:linear-gradient(135deg,rgba(47,122,79,.96),rgba(23,73,46,.95)),url("https://commons.wikimedia.org/wiki/Special:FilePath/19_Inside_the_Forest_Papua_Rain_Forest-Indonesia.jpg?width=1920") center/cover no-repeat;color:#fff;box-shadow:var(--shadow);overflow:hidden}
+.story-panel h2,.story-panel h3{color:#fff}
+.story-panel p{color:rgba(255,255,255,.88)}
+.story-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.story-item{border-radius:22px;padding:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
+.story-item p{font-size:.95rem;color:rgba(255,255,255,.88)}
+.compare-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.strategy-card{border-radius:34px;overflow:hidden;background:#fff;box-shadow:var(--shadow);border:1px solid rgba(23,73,46,.09)}
+.strategy-card figure{height:310px;background:#dceee3}
+.strategy-card figure img{width:100%;height:100%;object-fit:cover}
+.strategy-card .body{padding:24px}
+.strategy-card h3{font-size:1.65rem;margin-bottom:8px}
+.strategy-card p{color:var(--muted);margin-bottom:12px}
+.point-list{display:grid;gap:10px;margin-top:14px}
+.point{display:grid;grid-template-columns:34px 1fr;gap:10px;background:#f8fcf9;border:1px solid rgba(23,73,46,.08);border-radius:18px;padding:12px}
+.point .num{width:28px;height:28px;border-radius:10px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:950}
+.explain-box{border-radius:28px;padding:22px;background:linear-gradient(135deg,#fff,var(--soft));box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.09)}
+.explain-box h3{margin-bottom:8px}
+.explain-box p{color:var(--muted)}
+.case-list{display:grid;gap:18px}
+.case-card{display:grid;grid-template-columns:360px 1fr;gap:0;background:#fff;border-radius:30px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.09)}
+.case-card figure{min-height:300px;background:#dceee3}
+.case-card figure img{width:100%;height:100%;object-fit:cover}
+.case-body{padding:24px}
+.case-body h3{font-size:1.45rem;margin-bottom:8px}
+.case-body p{color:var(--muted);margin-bottom:12px}
+.case-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.case-points div{background:#f8fcf9;border:1px solid rgba(23,73,46,.08);border-radius:18px;padding:13px}
+.case-points strong{display:block;color:var(--primary-dark);margin-bottom:4px}
+.table-wrap{overflow-x:auto;border-radius:22px;box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.10);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:920px;background:#fff}
+th,td{padding:16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--primary);color:#fff;font-size:.92rem}
+td{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.practice-card{background:#fff;border-radius:26px;padding:20px;box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.09)}
+.practice-card h3{margin-bottom:8px}
+.practice-card p{color:var(--muted)}
+.answer-pattern{border-left:6px solid var(--accent);background:var(--accent-soft);border-radius:18px;padding:16px;margin-top:16px;color:#65480f;font-weight:780}
+.activity{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.activity-display{min-height:390px;border-radius:34px;padding:24px;background:radial-gradient(circle at 80% 12%,rgba(217,164,65,.22),transparent 35%),linear-gradient(145deg,#fff,var(--soft));display:grid;align-content:center;justify-items:center;text-align:center;box-shadow:var(--shadow-soft)}
+.activity-photo{width:min(100%,350px);aspect-ratio:16/10;border-radius:26px;overflow:hidden;background:white;margin-bottom:18px;box-shadow:0 16px 32px rgba(23,73,46,.16);border:8px solid rgba(255,255,255,.72)}
+.activity-photo img{width:100%;height:100%;object-fit:cover}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:7px 12px;background:var(--soft);color:var(--primary-dark);font-size:.9rem;font-weight:850}
+.option{display:block;width:100%;text-align:left;border:0;border-radius:18px;padding:13px 15px;margin-top:10px;background:#f3faf5;color:var(--ink);font-weight:800;cursor:pointer;transition:.16s}
+.option:hover{transform:translateX(4px);background:var(--soft)}
+.option.correct{background:#dcf5ef;color:#125344;box-shadow:inset 0 0 0 2px var(--green)}
+.option.wrong{background:#ffe4e4;color:#7a1f1f;box-shadow:inset 0 0 0 2px var(--red)}
+.option:disabled{cursor:default}
+.feedback-box{margin-top:12px;padding:14px;border-radius:18px;background:var(--accent-soft);color:#60430f;font-weight:800;display:none}
+.feedback-box.show{display:block}
+.quiz-card{margin-bottom:16px}
+.quiz-card h3{margin-bottom:13px}
+.score-board{position:sticky;top:84px;border-radius:28px;padding:22px;background:linear-gradient(135deg,#fff,var(--soft));box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.10)}
+.score-number{font-size:4rem;font-weight:950;letter-spacing:-.08em;line-height:1;color:var(--primary-dark)}
+.reflection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.reflection-card{background:#fff;border-radius:24px;padding:18px;box-shadow:var(--shadow-soft);border:1px solid rgba(23,73,46,.09)}
+.reflection-card h3{margin-bottom:8px}
+.reflection-card p{color:var(--muted)}
+.final-summary{border-radius:34px;padding:30px;background:linear-gradient(135deg,var(--primary-dark),#102334);color:#fff;box-shadow:var(--shadow)}
+.final-summary h2,.final-summary h3,.final-summary p{color:#fff}
+footer{margin-top:50px;padding-top:22px;text-align:center;color:var(--muted);font-size:.92rem}
+.image-error{background:linear-gradient(135deg,var(--soft),#fff);display:grid;place-items:center;min-height:220px}
+.image-error:after{content:"Gambar tidak terbaca";color:var(--primary-dark);font-weight:900}
+
+.quiz-explain{display:none;margin-top:14px;padding:14px 16px;border-radius:18px;background:var(--accent-soft);color:#60430f;font-weight:760}
+.quiz-explain.show{display:block}
+.quiz-explain strong{color:#4d3308}
+.quiz-card{margin-bottom:16px}
+
+@media(max-width:980px){
+  .hero,.grid-2,.grid-3,.grid-4,.story-grid,.compare-wrap,.activity,.reflection-grid,.practice-grid{grid-template-columns:1fr}
+  .section-title{align-items:flex-start;flex-direction:column}
+  nav{align-items:flex-start;flex-direction:column}
+  .nav-links{justify-content:flex-start}
+  .case-card{grid-template-columns:1fr}
+  .case-card figure{height:280px}
+  .case-points{grid-template-columns:1fr}
+  .score-board{position:static}
+}
+@media(max-width:640px){
+  .container{padding-left:16px;padding-right:16px}
+  .hero-panel{min-height:440px}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header>
+  <nav>
+    <div class="brand"><div class="brand-mark">GEO</div>Geografi XI/F</div>
+    <div class="nav-links">
+      <a href="#awal">Awal</a>
+      <a href="#masalah">Masalah</a>
+      <a href="#pengertian">Pengertian</a>
+      <a href="#strategi">Strategi</a>
+      <a href="#kasus">Kasus</a>
+      <a href="#latihan">Latihan</a>
+      <a href="#kuis">Kuis</a>
+      <a href="#refleksi">Refleksi</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+<section class="hero" id="awal">
+  <div>
+    <div class="eyebrow">Bahan Ajar Interaktif • Pertemuan 7 • 3 JP</div>
+    <h1>Konservasi Keanekaragaman Hayati: In-situ dan Ex-situ</h1>
+    <p class="lead">Pada pertemuan sebelumnya kamu menyelidiki endemisme dan habitat spesies kunci. Sekarang kita naik ke tahap tindakan: bagaimana memilih strategi konservasi yang tepat ketika flora, fauna, atau habitatnya terancam?</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#masalah">Mulai dari Masalah</a>
+      <a class="btn accent" href="#strategi">Bandingkan Strategi</a>
+      <a class="btn" href="#kuis">Kerjakan Kuis</a>
+      <button class="btn" onclick="window.print()">Cetak Ringkasan</button>
+    </div>
+  </div>
+  <aside class="hero-panel">
+    <figure class="hero-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orangutan_Kalimantan.jpg?width=1920" alt="Orang utan sebagai contoh spesies yang membutuhkan perlindungan habitat" fetchpriority="high" onerror="imageFallback(this)">
+      <figcaption class="hero-photo-label">Konservasi tidak selalu berarti memindahkan satwa. Kadang yang paling penting adalah menjaga rumahnya.</figcaption>
+    </figure>
+    <div class="question-box">
+      <strong>Masalah utama</strong>
+      Mengapa setiap masalah flora dan fauna membutuhkan strategi konservasi yang berbeda?
+    </div>
+  </aside>
+</section>
+
+<section id="masalah">
+  <div class="section-title">
+    <h2>Mulai dari Masalah Nyata</h2>
+    <p>Perhatikan empat situasi berikut. Setiap situasi membutuhkan pilihan strategi yang berbeda: in-situ, ex-situ, atau gabungan keduanya.</p>
+  </div>
+  <div class="grid grid-4">
+    <article class="card visual-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Komodo_dragon_(Varanus_komodoensis).jpg?width=1920" alt="Komodo" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Habitat asli</span>
+        <h3>Komodo terganggu aktivitas manusia</h3>
+        <p>Jika habitat masih ada, strategi utama adalah menjaga kawasan, mengatur wisata, dan mencegah gangguan.</p>
+      </div>
+    </article>
+    <article class="card visual-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tanjung_Puting30477.jpg?width=1920" alt="Orang utan di Tanjung Puting" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Rehabilitasi</span>
+        <h3>Orang utan kehilangan hutan</h3>
+        <p>Masalahnya bukan hanya satwa, tetapi juga hutan, jalur gerak, makanan, dan konflik manusia-satwa.</p>
+      </div>
+    </article>
+    <article class="card visual-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jalak_Bali.jpg?width=1920" alt="Jalak Bali" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Populasi kecil</span>
+        <h3>Jalak Bali perlu dukungan</h3>
+        <p>Jika populasi kecil, penangkaran, perlindungan habitat, dan pelepasliaran dapat saling melengkapi.</p>
+      </div>
+    </article>
+    <article class="card visual-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rafflesia_arnoldii_Bengkulu_01.jpg?width=1920" alt="Rafflesia arnoldii" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Flora langka</span>
+        <h3>Flora bergantung habitat</h3>
+        <p>Flora langka membutuhkan perlindungan habitat, pembibitan, koleksi ilmiah, atau kebun raya sesuai kondisinya.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="pengertian">
+  <div class="section-title">
+    <h2>Pengertian Kunci</h2>
+    <p>Istilah ini menjadi dasar untuk menentukan strategi konservasi yang tepat.</p>
+  </div>
+  <div class="grid grid-3">
+    <div class="term-card"><h3>Konservasi</h3><p>Upaya melindungi, mengelola, memulihkan, dan memanfaatkan keanekaragaman hayati secara bijak agar tetap lestari.</p></div>
+    <div class="term-card"><h3>Konservasi in-situ</h3><p>Pelestarian flora dan fauna di habitat aslinya. Contohnya taman nasional, suaka margasatwa, cagar alam, perlindungan hutan, dan pengawasan kawasan.</p></div>
+    <div class="term-card"><h3>Konservasi ex-situ</h3><p>Pelestarian di luar habitat asli. Contohnya penangkaran, kebun raya, bank benih, kebun binatang konservasi, dan pusat rehabilitasi.</p></div>
+    <div class="term-card"><h3>Rehabilitasi</h3><p>Perawatan satwa atau tumbuhan yang terganggu agar pulih. Pada satwa, rehabilitasi dapat menjadi tahap sebelum pelepasliaran.</p></div>
+    <div class="term-card"><h3>Pelepasliaran</h3><p>Mengembalikan satwa ke habitat yang aman setelah dinilai sehat, mampu bertahan, dan lingkungan tujuannya mendukung.</p></div>
+    <div class="term-card"><h3>Edukasi konservasi</h3><p>Upaya mengubah pengetahuan dan perilaku manusia agar tidak merusak habitat, memburu satwa, atau memperdagangkan spesies dilindungi.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="story-panel">
+    <div class="section-title" style="margin-bottom:10px;">
+      <h2>Apa yang Sebenarnya Dilindungi?</h2>
+      <p>Konservasi bukan hanya “menyelamatkan hewan”. Konservasi juga menjaga sistem kehidupan yang membuat spesies dapat bertahan.</p>
+    </div>
+    <div class="story-grid">
+      <div class="story-item"><h3>1. Spesies</h3><p>Individu dan populasi flora-fauna perlu tetap cukup agar bisa berkembang biak.</p></div>
+      <div class="story-item"><h3>2. Habitat</h3><p>Tempat hidup, makanan, air, ruang bergerak, dan tempat berkembang biak harus tetap ada.</p></div>
+      <div class="story-item"><h3>3. Proses alam</h3><p>Rantai makanan, penyerbukan, regenerasi hutan, dan keseimbangan ekosistem perlu dijaga.</p></div>
+      <div class="story-item"><h3>4. Perilaku manusia</h3><p>Perburuan, perdagangan ilegal, wisata tidak tertib, dan perusakan habitat harus dikurangi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="strategi">
+  <div class="section-title">
+    <h2>In-situ vs Ex-situ</h2>
+    <p>Dua strategi ini tidak saling menggantikan sepenuhnya. Pilihannya bergantung pada kondisi spesies, habitat, dan ancaman.</p>
+  </div>
+  <div class="compare-wrap">
+    <article class="strategy-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_of_Rinca_Island.jpg?width=1920" alt="Bentang alam Rinca sebagai habitat alami" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Di habitat asli</span>
+        <h3>Konservasi In-situ</h3>
+        <p>Strategi ini menjaga flora-fauna di tempat hidup alaminya. Tujuannya bukan hanya melindungi individu, tetapi juga menjaga habitat dan proses ekologi.</p>
+        <div class="point-list">
+          <div class="point"><div class="num">1</div><div><strong>Cocok saat habitat masih bisa dilindungi</strong><p>Misalnya perlindungan komodo di kawasan habitat aslinya.</p></div></div>
+          <div class="point"><div class="num">2</div><div><strong>Menjaga ekosistem utuh</strong><p>Spesies tetap berinteraksi dengan habitat, mangsa, tumbuhan, dan lingkungannya.</p></div></div>
+          <div class="point"><div class="num">3</div><div><strong>Butuh aturan dan pengawasan</strong><p>Wisata, perburuan, kebakaran, dan perubahan lahan harus dikendalikan.</p></div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="strategy-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jalak_Bali.jpg?width=1920" alt="Jalak Bali sebagai contoh satwa yang dapat dibantu penangkaran" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="body">
+        <span class="tag">Di luar habitat asli</span>
+        <h3>Konservasi Ex-situ</h3>
+        <p>Strategi ini dilakukan di luar habitat asli untuk membantu spesies yang populasinya kecil, sulit berkembang biak, terluka, atau membutuhkan perlindungan sementara.</p>
+        <div class="point-list">
+          <div class="point"><div class="num">1</div><div><strong>Cocok saat populasi kritis</strong><p>Penangkaran dapat membantu memperbanyak populasi sebelum pelepasliaran.</p></div></div>
+          <div class="point"><div class="num">2</div><div><strong>Bukan pengganti habitat</strong><p>Ex-situ tidak boleh menjadi alasan untuk membiarkan habitat aslinya rusak.</p></div></div>
+          <div class="point"><div class="num">3</div><div><strong>Perlu rencana lanjutan</strong><p>Jika memungkinkan, hasilnya diarahkan pada pemulihan populasi dan habitat.</p></div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="keputusan">
+  <div class="section-title">
+    <h2>Panduan Memilih Strategi</h2>
+    <p>Gunakan pertanyaan berurutan ini agar jawabanmu tidak asal menyebut in-situ atau ex-situ.</p>
+  </div>
+  <div class="grid grid-3">
+    <div class="explain-box">
+      <h3>1. Bagaimana kondisi habitat?</h3>
+      <p>Jika habitat asli masih layak dan bisa dilindungi, in-situ menjadi pilihan utama. Jika habitat rusak parah, pemulihan habitat perlu dimasukkan.</p>
+    </div>
+    <div class="explain-box">
+      <h3>2. Bagaimana kondisi populasi?</h3>
+      <p>Jika populasi sangat kecil, terluka, atau sulit berkembang biak, ex-situ seperti penangkaran atau rehabilitasi dapat dibutuhkan.</p>
+    </div>
+    <div class="explain-box">
+      <h3>3. Apa ancaman utamanya?</h3>
+      <p>Jika ancaman berasal dari manusia, strategi perlu ditambah edukasi, aturan, pengawasan, dan perubahan perilaku.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kasus">
+  <div class="section-title">
+    <h2>Studi Kasus Keputusan Konservasi</h2>
+    <p>Bagian ini menjadi materi utama: analisis masalah, strategi, dan alasan pemilihan strategi.</p>
+  </div>
+  <div class="case-list">
+    <article class="case-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Komodo_dragon_(Varanus_komodoensis).jpg?width=1920" alt="Komodo" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="case-body">
+        <h3>1. Komodo: habitat asli harus dijaga</h3>
+        <p>Jika komodo terancam oleh gangguan manusia, strategi utamanya bukan memindahkan semua komodo, tetapi menjaga kawasan habitat, mengatur wisata, dan mencegah perburuan atau gangguan.</p>
+        <div class="case-points">
+          <div><strong>Masalah</strong> Gangguan manusia, wisata tidak tertib, perubahan habitat.</div>
+          <div><strong>Strategi</strong> In-situ.</div>
+          <div><strong>Alasan</strong> Habitat asli masih menjadi ruang hidup utama.</div>
+          <div><strong>Tambahan</strong> Pengawasan kawasan dan edukasi pengunjung.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tanjung_Puting30477.jpg?width=1920" alt="Orang utan di Tanjung Puting" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="case-body">
+        <h3>2. Orang utan: strategi gabungan</h3>
+        <p>Orang utan membutuhkan hutan luas, kanopi pohon, dan sumber buah. Jika satwa diselamatkan dari konflik atau kehilangan habitat, rehabilitasi dapat diperlukan. Namun hutan tetap harus dipulihkan dan dilindungi.</p>
+        <div class="case-points">
+          <div><strong>Masalah</strong> Fragmentasi hutan, konflik manusia-satwa, satwa terluka/terpisah.</div>
+          <div><strong>Strategi</strong> Gabungan in-situ dan ex-situ.</div>
+          <div><strong>Alasan</strong> Satwa perlu pulih, tetapi habitat juga harus aman.</div>
+          <div><strong>Tambahan</strong> Rehabilitasi, pelepasliaran, perlindungan hutan.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jalak_Bali_Terbang.jpg?width=1920" alt="Jalak Bali dilepasliarkan" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="case-body">
+        <h3>3. Jalak Bali: penangkaran dan pelepasliaran</h3>
+        <p>Jika populasi satwa sangat kecil, penangkaran dapat membantu meningkatkan jumlah individu. Namun pelepasliaran harus dilakukan pada habitat yang aman dan tetap diawasi.</p>
+        <div class="case-points">
+          <div><strong>Masalah</strong> Populasi kecil dan tekanan perburuan.</div>
+          <div><strong>Strategi</strong> Ex-situ + in-situ.</div>
+          <div><strong>Alasan</strong> Perlu dukungan populasi sekaligus perlindungan habitat.</div>
+          <div><strong>Tambahan</strong> Edukasi dan pengawasan perdagangan satwa.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case-card">
+      <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rafflesia_arnoldii_Bengkulu_01.jpg?width=1920" alt="Rafflesia arnoldii" loading="lazy" onerror="imageFallback(this)"></figure>
+      <div class="case-body">
+        <h3>4. Flora langka: habitat dan koleksi ilmiah</h3>
+        <p>Flora langka tidak selalu mudah dipindahkan. Beberapa tumbuhan bergantung pada inang, tanah, kelembapan, atau kondisi mikrohabitat tertentu. Karena itu, perlindungan habitat sering menjadi prioritas.</p>
+        <div class="case-points">
+          <div><strong>Masalah</strong> Habitat terganggu dan kondisi mikro rusak.</div>
+          <div><strong>Strategi</strong> In-situ, bisa didukung ex-situ jika memungkinkan.</div>
+          <div><strong>Alasan</strong> Tumbuhan tertentu sangat bergantung pada kondisi habitat.</div>
+          <div><strong>Tambahan</strong> Kebun raya, pembibitan, bank benih, penelitian.</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="tabel">
+  <div class="section-title">
+    <h2>Tabel Keputusan Konservasi</h2>
+    <p>Tabel ini membantu menyusun jawaban yang runtut saat memilih strategi.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Kondisi masalah</th>
+          <th>Strategi yang lebih sesuai</th>
+          <th>Contoh</th>
+          <th>Alasan utama</th>
+          <th>Risiko jika salah strategi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Habitat asli masih tersedia, tetapi terancam</td>
+          <td><strong>In-situ</strong></td>
+          <td>Perlindungan komodo di habitat alaminya</td>
+          <td>Spesies tetap hidup dalam ekosistem aslinya.</td>
+          <td>Jika hanya dipindahkan, habitat tetap rusak dan masalah tidak selesai.</td>
+        </tr>
+        <tr>
+          <td>Populasi sangat kecil dan perlu dibantu berkembang biak</td>
+          <td><strong>Ex-situ</strong></td>
+          <td>Penangkaran jalak Bali</td>
+          <td>Populasi dapat dibantu sebelum dilepasliarkan.</td>
+          <td>Jika habitat tidak disiapkan, hasil penangkaran sulit bertahan di alam.</td>
+        </tr>
+        <tr>
+          <td>Satwa diselamatkan dari konflik atau habitat rusak</td>
+          <td><strong>Gabungan</strong></td>
+          <td>Rehabilitasi orang utan dan perlindungan hutan</td>
+          <td>Satwa perlu pulih, habitat juga harus aman.</td>
+          <td>Jika hanya rehabilitasi tanpa hutan aman, satwa bisa kembali terancam.</td>
+        </tr>
+        <tr>
+          <td>Flora langka bergantung pada kondisi mikrohabitat</td>
+          <td><strong>In-situ dengan dukungan ex-situ</strong></td>
+          <td>Perlindungan habitat rafflesia dan penelitian/koleksi ilmiah</td>
+          <td>Habitat khusus menjadi syarat hidup utama.</td>
+          <td>Jika habitat rusak, spesies sulit bertahan meski ada koleksi di luar habitat.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="latihan">
+  <div class="section-title">
+    <h2>Latihan Analisis Keputusan</h2>
+    <p>Gunakan pola: masalah, kondisi habitat, kondisi populasi, ancaman, strategi, dan alasan.</p>
+  </div>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <h3>Kasus 1: Habitat masih ada</h3>
+      <p>Satwa liar hidup di kawasan alami, tetapi wisatawan sering mendekat, memberi makan, dan keluar jalur.</p>
+      <div class="answer-pattern">Tantangan: Jelaskan mengapa in-situ dengan aturan wisata dan edukasi lebih tepat daripada memindahkan semua satwa.</div>
+    </div>
+    <div class="practice-card">
+      <h3>Kasus 2: Populasi kecil</h3>
+      <p>Sebuah burung endemik memiliki populasi sangat kecil dan sering diburu untuk perdagangan.</p>
+      <div class="answer-pattern">Tantangan: Jelaskan mengapa penangkaran perlu dibarengi perlindungan habitat dan pengawasan perdagangan.</div>
+    </div>
+    <div class="practice-card">
+      <h3>Kasus 3: Hutan rusak</h3>
+      <p>Satwa arboreal kehilangan jalur kanopi, sumber buah, dan ruang gerak akibat fragmentasi hutan.</p>
+      <div class="answer-pattern">Tantangan: Jelaskan mengapa rehabilitasi satwa saja tidak cukup tanpa pemulihan habitat.</div>
+    </div>
+  </div>
+</section>
+
+<section id="aktivitas">
+  <div class="section-title">
+    <h2>Tebak Strategi Konservasi</h2>
+    <p>Baca situasi, lalu pilih strategi yang paling sesuai.</p>
+  </div>
+  <div class="activity">
+    <div class="activity-display">
+      <figure class="activity-photo">
+        <img id="gameImage" src="https://commons.wikimedia.org/wiki/Special:FilePath/Komodo_dragon_(Varanus_komodoensis).jpg?width=1920" alt="Situasi konservasi" loading="lazy" onerror="imageFallback(this)">
+      </figure>
+      <h3 id="gameName">Komodo dilindungi di habitat aslinya</h3>
+      <p>Strategi apa yang paling sesuai?</p>
+      <div style="display:flex;justify-content:center;margin-top:12px"><span class="pill" id="gameCount">1 dari 6</span></div>
+    </div>
+    <div class="card card-pad">
+      <h3>Pilih jawaban:</h3>
+      <div id="gameOptions"></div>
+      <div class="feedback-box" id="gameFeedback"></div>
+      <div class="hero-actions" style="margin-top:16px">
+        <button class="btn primary" onclick="nextGame()">Soal Berikutnya</button>
+        <button class="btn" onclick="resetGame()">Ulangi</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="kuis">
+  <div class="section-title">
+    <h2>Kuis Analisis</h2>
+    <p>Baca kasus, lalu pilih strategi konservasi yang paling sesuai.</p>
+  </div>
+
+  <div class="card card-pad" style="margin-bottom:18px;">
+    <h3>Skor: <span id="quizScore">0</span>/6</h3>
+    <p id="quizFeedback">Jawab pertanyaan, lalu baca pembahasan singkatnya.</p>
+    <div class="hero-actions" style="margin-top:14px">
+      <button class="btn primary" onclick="resetQuiz()">Ulangi Kuis</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="card card-pad quiz-card" data-answer="b" data-explain="Jika spesies masih hidup di habitat alaminya, perlindungan habitat dan pengaturan aktivitas manusia menjadi bagian penting dari konservasi in-situ.">
+      <h3>1. Di sebuah taman nasional, satwa liar masih hidup di habitat aslinya, tetapi mulai terganggu oleh pengunjung yang keluar jalur. Strategi paling tepat adalah...</h3>
+      <button class="option" data-option="a">Memindahkan semua satwa ke kandang agar pengunjung bebas masuk.</button>
+      <button class="option" data-option="b">Menjaga habitat, memperjelas jalur, membatasi jarak aman, dan memberi edukasi pengunjung.</button>
+      <button class="option" data-option="c">Membiarkan pengunjung keluar jalur selama tidak mengambil foto terlalu banyak.</button>
+      <button class="option" data-option="d">Menghapus semua aturan kawasan.</button>
+      <div class="quiz-explain"></div>
+    </div>
+
+    <div class="card card-pad quiz-card" data-answer="d" data-explain="Ex-situ dapat membantu saat populasi sangat kecil. Namun, pelepasliaran tetap membutuhkan habitat yang aman dan pemantauan.">
+      <h3>2. Populasi burung langka tinggal sedikit. Penangkaran berhasil menambah jumlah individu, tetapi habitat alaminya masih perlu dipulihkan. Langkah berikutnya yang paling tepat adalah...</h3>
+      <button class="option" data-option="a">Menyimpan semua burung di penangkaran selamanya.</button>
+      <button class="option" data-option="b">Melepas semua burung sekaligus ke habitat yang belum aman.</button>
+      <button class="option" data-option="c">Menghentikan program karena jumlah di penangkaran sudah bertambah.</button>
+      <button class="option" data-option="d">Memulihkan habitat, mengawasi ancaman, lalu melakukan pelepasliaran bertahap dengan pemantauan.</button>
+      <div class="quiz-explain"></div>
+    </div>
+
+    <div class="card card-pad quiz-card" data-answer="a" data-explain="Rehabilitasi diperlukan untuk satwa yang diselamatkan. Setelah itu, habitat harus dinilai sebelum pelepasliaran agar satwa tidak kembali ke kondisi berbahaya.">
+      <h3>3. Seekor orang utan diselamatkan dari area konflik. Satwa tersebut perlu perawatan sebelum kembali ke alam. Tindakan yang paling sesuai adalah...</h3>
+      <button class="option" data-option="a">Rehabilitasi, penilaian habitat, pelepasliaran terkontrol, dan pemantauan.</button>
+      <button class="option" data-option="b">Langsung dilepas di lokasi terdekat tanpa pemeriksaan.</button>
+      <button class="option" data-option="c">Dipertontonkan terus-menerus agar dikenal banyak orang.</button>
+      <button class="option" data-option="d">Diabaikan karena satwa liar selalu bisa bertahan sendiri.</button>
+      <div class="quiz-explain"></div>
+    </div>
+
+    <div class="card card-pad quiz-card" data-answer="c" data-explain="Rafflesia membutuhkan kondisi habitat dan inang tertentu. Karena itu perlindungan habitat asal lebih relevan dibanding pemindahan sembarangan.">
+      <h3>4. Rafflesia tumbuh pada habitat hutan tertentu dan bergantung pada inang. Strategi konservasi yang paling sesuai adalah...</h3>
+      <button class="option" data-option="a">Mengambil bunga untuk dipajang di sekolah.</button>
+      <button class="option" data-option="b">Memindahkan semua rafflesia ke taman kota.</button>
+      <button class="option" data-option="c">Melindungi habitat asal dan mengurangi gangguan pada area tumbuhnya.</button>
+      <button class="option" data-option="d">Membiarkan habitat rusak selama ada dokumentasi foto.</button>
+      <div class="quiz-explain"></div>
+    </div>
+
+    <div class="card card-pad quiz-card" data-answer="b" data-explain="Perdagangan satwa perlu ditangani melalui edukasi, pengawasan, pelaporan aman, dan penegakan aturan. Konservasi tidak cukup hanya menjaga habitat.">
+      <h3>5. Perdagangan satwa dilindungi masih terjadi di media sosial. Upaya konservasi yang paling sesuai untuk mengurangi masalah tersebut adalah...</h3>
+      <button class="option" data-option="a">Membeli satwa agar dapat dipelihara sendiri.</button>
+      <button class="option" data-option="b">Edukasi masyarakat, pelaporan aman, pengawasan perdagangan, dan penegakan aturan.</button>
+      <button class="option" data-option="c">Menyebarkan ulang unggahan jual beli agar viral.</button>
+      <button class="option" data-option="d">Mengabaikan perdagangan selama satwa masih terlihat di alam.</button>
+      <div class="quiz-explain"></div>
+    </div>
+
+    <div class="card card-pad quiz-card" data-answer="d" data-explain="In-situ dan ex-situ dapat saling melengkapi. Pemilihan strategi bergantung pada kondisi habitat, jumlah populasi, ancaman, dan tujuan pelepasliaran.">
+      <h3>6. Pernyataan yang paling tepat tentang in-situ dan ex-situ adalah...</h3>
+      <button class="option" data-option="a">In-situ selalu berarti memindahkan satwa dari habitat aslinya.</button>
+      <button class="option" data-option="b">Ex-situ membuat habitat asli tidak lagi penting.</button>
+      <button class="option" data-option="c">Semua spesies harus selalu dilestarikan dengan cara yang sama.</button>
+      <button class="option" data-option="d">In-situ menjaga spesies di habitat asal, sedangkan ex-situ membantu di luar habitat asal saat diperlukan.</button>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="refleksi">
+  <div class="section-title">
+    <h2>Refleksi Individu</h2>
+    <p>Gunakan bagian ini untuk mengecek pemahaman sebelum menutup pertemuan.</p>
+  </div>
+  <div class="reflection-grid">
+    <div class="reflection-card">
+      <h3>Strategi paling mudah</h3>
+      <p>Mana yang paling mudah kamu pahami: in-situ, ex-situ, atau gabungan? Jelaskan alasannya.</p>
+    </div>
+    <div class="reflection-card">
+      <h3>Kasus paling sulit</h3>
+      <p>Kasus konservasi apa yang menurutmu sulit ditentukan strateginya?</p>
+    </div>
+    <div class="reflection-card">
+      <h3>Bukti yang dibutuhkan</h3>
+      <p>Sebelum memilih strategi, bukti apa yang perlu dicari tentang spesies dan habitatnya?</p>
+    </div>
+  </div>
+</section>
+
+<section id="penutup">
+  <div class="final-summary">
+    <div class="section-title" style="margin-bottom:12px">
+      <h2>Kesimpulan Inti</h2>
+      <p>Kesimpulan diletakkan di akhir agar muncul setelah pengamatan, pengertian, perbandingan strategi, studi kasus, latihan, kuis, dan refleksi.</p>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <h3>Konservasi harus sesuai masalah</h3>
+        <p>In-situ digunakan untuk melindungi spesies di habitat aslinya. Ex-situ digunakan ketika spesies perlu dibantu di luar habitat asli, misalnya melalui penangkaran, kebun raya, bank benih, atau rehabilitasi.</p>
+      </div>
+      <div>
+        <h3>Sering kali perlu gabungan</h3>
+        <p>Jika spesies terancam sekaligus habitatnya rusak, strategi gabungan lebih masuk akal: menyelamatkan spesies, memulihkan habitat, mengawasi ancaman, dan mengubah perilaku manusia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Bahan ajar interaktif Geografi SMA • Pertemuan 7 • Konservasi In-situ dan Ex-situ</p>
+</footer>
+</main>
+
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const top=window.scrollY;
+  const h=document.body.scrollHeight-window.innerHeight;
+  progress.style.width=(h>0?top/h*100:0)+'%';
+});
+function imageFallback(img){
+  const parent=img.closest('figure') || img.parentElement;
+  if(parent) parent.classList.add('image-error');
+  img.remove();
+}
+const gameItems=[
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Komodo_dragon_(Varanus_komodoensis).jpg?width=1920', name:'Komodo dilindungi di habitat aslinya dengan pengawasan wisata', answer:'In-situ', options:['In-situ','Ex-situ','Tidak perlu konservasi'], feedback:'Benar. Perlindungan di habitat asli termasuk in-situ.'},
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Jalak_Bali.jpg?width=1920', name:'Jalak Bali dibantu melalui penangkaran karena populasinya kecil', answer:'Ex-situ', options:['In-situ','Ex-situ','Deforestasi'], feedback:'Benar. Penangkaran di luar habitat asli termasuk ex-situ.'},
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Tanjung_Puting30477.jpg?width=1920', name:'Orang utan direhabilitasi lalu habitat hutannya dipulihkan', answer:'Gabungan', options:['In-situ','Ex-situ','Gabungan'], feedback:'Benar. Ada rehabilitasi dan perlindungan habitat, jadi strategi gabungan.'},
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_of_Rinca_Island.jpg?width=1920', name:'Kawasan habitat asli diberi aturan jalur wisata dan pengawasan', answer:'In-situ', options:['In-situ','Ex-situ','Tidak berhubungan'], feedback:'Benar. Mengatur aktivitas di habitat asli termasuk in-situ.'},
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Rafflesia_arnoldii_Bengkulu_01.jpg?width=1920', name:'Flora langka diteliti, habitatnya dilindungi, dan koleksi ilmiah didukung', answer:'Gabungan', options:['In-situ','Ex-situ','Gabungan'], feedback:'Benar. Perlindungan habitat dan dukungan di luar habitat dapat saling melengkapi.'},
+  {image:'https://commons.wikimedia.org/wiki/Special:FilePath/Cenderawasih_Bird_-_Papua.jpg?width=900', name:'Masyarakat diberi edukasi agar tidak memburu burung khas Papua', answer:'Edukasi pendukung', options:['Edukasi pendukung','Memindahkan semua satwa','Menghapus habitat'], feedback:'Benar. Edukasi membantu mengurangi ancaman dari perilaku manusia.'}
+];
+let currentGame=0,gameAnswered=false;
+function renderGame(){
+  const item=gameItems[currentGame];
+  const img=document.getElementById('gameImage');
+  img.src=item.image; img.alt=item.name;
+  document.getElementById('gameName').textContent=item.name;
+  document.getElementById('gameCount').textContent=`${currentGame+1} dari ${gameItems.length}`;
+  const options=document.getElementById('gameOptions');
+  const feedback=document.getElementById('gameFeedback');
+  feedback.classList.remove('show'); feedback.textContent=''; options.innerHTML='';
+  item.options.forEach(opt=>{
+    const btn=document.createElement('button');
+    btn.className='option'; btn.textContent=opt; btn.onclick=()=>answerGame(btn,opt);
+    options.appendChild(btn);
+  });
+  gameAnswered=false;
+}
+function answerGame(button,choice){
+  if(gameAnswered)return; gameAnswered=true;
+  const item=gameItems[currentGame];
+  document.querySelectorAll('#gameOptions .option').forEach(btn=>{
+    btn.disabled=true;
+    if(btn.textContent===item.answer) btn.classList.add('correct');
+  });
+  if(choice!==item.answer){
+    button.classList.add('wrong');
+    document.getElementById('gameFeedback').textContent=`Belum tepat. Jawaban yang lebih sesuai: ${item.answer}. ${item.feedback}`;
+  }else{
+    document.getElementById('gameFeedback').textContent=item.feedback;
+  }
+  document.getElementById('gameFeedback').classList.add('show');
+}
+function nextGame(){currentGame=(currentGame+1)%gameItems.length;renderGame()}
+function resetGame(){currentGame=0;renderGame()}
+const quizAnswered=new Map();
+document.querySelectorAll('.quiz-card').forEach((card,index)=>{
+  card.querySelectorAll('.option').forEach(option=>{
+    option.addEventListener('click',()=>{
+      if(quizAnswered.has(index))return;
+      const correct=card.dataset.answer;
+      const chosen=option.dataset.option;
+      card.querySelectorAll('.option').forEach(btn=>{
+        btn.disabled=true;
+        if(btn.dataset.option===correct)btn.classList.add('correct');
+      });
+      if(chosen!==correct)option.classList.add('wrong');
+      const explain=card.querySelector('.quiz-explain');
+      if(explain){
+        explain.innerHTML='<strong>Pembahasan:</strong> '+card.dataset.explain;
+        explain.classList.add('show');
+      }
+      quizAnswered.set(index,chosen===correct);
+      updateQuizScore();
+    });
+  });
+});
+function updateQuizScore(){
+  const total=document.querySelectorAll('.quiz-card').length;
+  const score=Array.from(quizAnswered.values()).filter(Boolean).length;
+  document.getElementById('quizScore').textContent=score;
+  const feedback=document.getElementById('quizFeedback');
+  if(quizAnswered.size<total) feedback.textContent='Lanjutkan sampai semua pertanyaan terjawab.';
+  else if(score===total) feedback.textContent='Mantap. Kamu sudah memahami materi melalui kasus yang diberikan.';
+  else if(score>=Math.ceil(total*0.7)) feedback.textContent='Bagus. Coba teliti lagi hubungan antara kasus dan konsep materinya.';
+  else feedback.textContent='Ayo ulangi. Baca lagi kasusnya dan perhatikan alasan setiap jawaban.';
+}
+function resetQuiz(){
+  quizAnswered.clear();
+  document.getElementById('quizScore').textContent='0';
+  document.getElementById('quizFeedback').textContent='Jawab pertanyaan, lalu baca pembahasan singkatnya.';
+  document.querySelectorAll('.quiz-card').forEach(card=>{
+    card.querySelectorAll('.option').forEach(btn=>{
+      btn.disabled=false; btn.classList.remove('correct','wrong');
+    });
+    const explain=card.querySelector('.quiz-explain');
+    if(explain){explain.classList.remove('show'); explain.textContent='';}
+  });
+}
+renderGame();
+</script>
+</body>
+</html>
